@@ -1,0 +1,16 @@
+.data-row{
+    background-color: bisque;
+}
+
+input{
+    border-radius: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    border-color: rgba(255, 255, 255, 0.11);
+}
+
+input[type="text"]
+{
+    text-align: center;
+}

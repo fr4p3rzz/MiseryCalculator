@@ -1,6 +1,16 @@
-/** The bois' annual income in dollars */
-let elonMusk = 12648672874;
-let bernardArnault = 94100000000;
+/** The bois */
+let elonMusk = {
+    name: "Elon Musk",
+    yearIncome: 12648672874,
+    description: ""
+};
+
+let bernardArnault = {
+    name: "Bernard Arnault",
+    yearIncome: 94100000000,
+    description: ""
+};
+
 let billGates = 3796000000;
 let larryEllison = 67261000;
 let larryPage = 10000000;

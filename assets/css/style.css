@@ -3,6 +3,10 @@
     color: #2b2b2b;
 }
 
+.money-table{
+  font-size: 15px;
+}
+
 tr{
     margin: 15px;
 }

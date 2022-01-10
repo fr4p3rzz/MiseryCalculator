@@ -21,22 +21,22 @@ let commaValue = 2
 
 function incomePerMonth(income)
 {
-    return (income / 12).toFixed(commaValue);
+    return income / 12;
 }
 
 function incomePerDay(income)
 {
-    return (income / 365).toFixed(commaValue);
+    return income / 365;
 }
 
 function incomePerMinute(income)
 {
-    return (income / 525600).toFixed(commaValue);
+    return (income / 525600);
 }
 
 function incomePerSecond(income)
 {
-    return (income / 31536000).toFixed(commaValue);
+    return (income / 31536000);
 }
 
 function compareYear(value1, value2){
@@ -50,13 +50,13 @@ function compareMonth(value1, value2){
 }
 
 function compareMinute(value1, value2){
-
-    return (incomePerMinute(value1) / value2).toFixed(commaValue);
+    result = (incomePerMinute(value1) / value2).toFixed(commaValue);
+    return explicitTime(result);
 }
 
 function compareSecond(value1, value2){
-
-    return (incomePerSecond(value1) / value2).toFixed(commaValue + 2);
+    result = (incomePerSecond(value1) / value2).toFixed(commaValue + 2);
+    return explicitTime(result);
 }
 
 function toEur(income)
@@ -78,3 +78,85 @@ function toRupee(income)
 {
     return (income * rupee).toFixed(commaValue)
 }
+
+// Function to explicit time when it's less than 1 month
+function explicitTime(time)
+{
+    let oneMonth = 0.1 // Percentage of 1 month in a year
+    let oneWeek = 0.02 // Percentage of one week in a year
+    let oneDay = 0.003 // Percentage of a day in a year
+    let oneHour = 0.0001 // Percentage of 1 hour in a year
+    let halfhour = 0.00006 // Percentage of 1 hour in a year
+    let fiveMins = 0.00001 // Percentage of 5 minutes in a year
+
+    if(time < oneMonth)
+    {
+        if(time < oneWeek)
+        {
+            if(time < oneDay)
+            {
+                if(time < oneHour)
+                {
+                    if(time < halfhour)
+                    {
+                        if(time < fiveMins)
+                        {
+                            return '< 5min';
+                        }
+                        else
+                        {
+                            return '< 30min';
+                        }
+                    }
+                    else
+                    {
+                        return '< 1hr';
+                    }
+                }
+                else
+                {
+                    return '< 1 day';
+                }
+            }
+            else
+            {
+                return '< 1 week';
+            }
+        }
+        else
+        {
+            return '< 1 month';
+        }
+    }
+    else
+    {
+        return time;
+    }
+}
+
+function currencySelect(currency)
+{
+    switch(currency)
+    {
+        case 'USD':
+            break;
+        case 'EUR':
+            break;
+        case 'YEN':
+            break;
+        case 'RUB':
+            break;
+        case 'INR':
+            break;
+        default:
+            break;
+    }
+}
+
+// Function to display values as income (xxx.yyy.zzz,aa)
+Number.prototype.format = function(n, x, s, c) {
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+        num = this.toFixed(Math.max(0, ~~n));
+
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+};

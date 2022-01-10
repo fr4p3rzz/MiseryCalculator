@@ -1,3 +1,4 @@
+
 /** The bois */
 let milionaires = [];
 let elonMusk = new milionaire("Elon Musk", 12648672874, "", "");
@@ -21,21 +22,31 @@ milionaires.push(jkRowling);
 
 /** The place */
 let cardGrid = document.getElementById("cards-row");
-let cardTemplate = document.getElementById("card");
-cardTemplate.removeAttribute("style");
+let cardTemplate = document.createElement("div");
+cardTemplate = document.getElementById("card");
+document.getElementById("template").remove();
 
+/** The input */
+let userYearIncome = 0;
 document.getElementById("input-misery").addEventListener("keyup", (e) => {
-    
+    userYearIncome = parseInt(document.getElementById("input-misery").innerText);
+})
+
+document.getElementById("calculate-button").addEventListener("click", function(){
+
+    cardGrid.innerHTML = "";
+    for(let i = 0; i < milionaires.length; i++)
+    {
+        let newCard = document.createElement("div");
+        newCard.setAttribute("id", "card-" + i);
+        newCard.classList.add("col-lg-6", "align-self-center", "my-auto");
+        newCard.appendChild(cardTemplate.cloneNode(true));
+        newCard.querySelector("td.year-income").innerText = milionaires[i].yearIncome;
+        newCard.querySelector("td.month-income").innerText = incomePermonth(milionaires[i].yearIncome);
+        newCard.querySelector("td.minute-income").innerText = incomePerMinute(milionaires[i].yearIncome);
+        newCard.querySelector("td.second-income").innerText = incomePerSecond(milionaires[i].yearIncome);
+        cardGrid.appendChild(newCard);
+    }
 })
 
 
-for(let i = 0; i < milionaires.length; i++)
-{
-    let newCard = cardTemplate;
-    newCard.setAttribute("id", "card-" + i);
-    newCard.querySelector("td.year-income").innerText = milionaires[i].yearIncome;
-    newCard.querySelector("td.month-income").innerText = incomePermonth(milionaires[i].yearIncome);
-    newCard.querySelector("td.minute-income").innerText = incomePerMinute(milionaires[i].yearIncome);
-    newCard.querySelector("td.second-income").innerText = incomePerSecond(milionaires[i].yearIncome);
-    cardGrid.appendChild(newCard);
-}

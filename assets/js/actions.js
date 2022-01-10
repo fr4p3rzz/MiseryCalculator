@@ -1,14 +1,14 @@
 /** The bois */
 let milionaires = [];
-let elonMusk = new milionaire("Elon Musk", 12648672874);
-let bernardArnault = new milionaire("Bernard Arnault", 94100000000);
-let billGates = new milionaire("Bill gates", 3796000000);
-let larryEllison = new milionaire("Larry Ellison", 67261000);
-let larryPage = new milionaire ("Larry Page", 10000000);
-let markZuckerberg = new milionaire("Mark Zuckemberg", 3000000000);
-let warrenBuffet = new milionaire("Warren Buffet", 13500000000);
-let jeffBezos = new milionaire("Jeff Bezos", 73000000000);
-let jkRowling = new milionaire("J.K. Rowling", 60000000);
+let elonMusk = new milionaire("Elon Musk", 281200000000);
+let bernardArnault = new milionaire("Bernard Arnault", 42300000000);
+let billGates = new milionaire("Bill gates", 10700000000);
+let larryEllison = new milionaire("Larry Ellison", 34000000000);
+let larryPage = new milionaire ("Larry Page", 16100000000);
+let markZuckerberg = new milionaire("Mark Zuckemberg", 23400000);
+let warrenBuffet = new milionaire("Warren Buffet", 380000);
+let jeffBezos = new milionaire("Jeff Bezos", 64000000000);
+let jkRowling = new milionaire("J.K. Rowling", 61125000);
 
 milionaires.push(elonMusk);
 milionaires.push(bernardArnault);

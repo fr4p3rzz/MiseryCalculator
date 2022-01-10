@@ -1,0 +1,41 @@
+/** The bois */
+let milionaires = [];
+let elonMusk = new milionaire("Elon Musk", 12648672874, "", "");
+let bernardArnault = new milionaire("Bernard Arnault", 94100000000, "", "");
+let billGates = new milionaire("Bill gates", 3796000000, "", "");
+let larryEllison = new milionaire("Larry Ellison", 67261000, "", "");
+let larryPage = new milionaire ("Larry Page", 10000000, "", "");
+let markZuckerberg = new milionaire("Mark Zuckemberg", 3000000000, "", "");
+let warrenBuffet = new milionaire("Warren Buffet", 13500000000, "", "");
+let jeffBezos = new milionaire("Jeff Bezos", 73000000000, "", "");
+let jkRowling = new milionaire("J.K. Rowling", 60000000, "", "");
+
+milionaires.push(elonMusk);
+milionaires.push(bernardArnault);
+milionaires.push(larryEllison);
+milionaires.push(larryPage);
+milionaires.push(markZuckerberg);
+milionaires.push(warrenBuffet);
+milionaires.push(jeffBezos);
+milionaires.push(jkRowling);
+
+/** The place */
+let cardGrid = document.getElementById("cards-row");
+let cardTemplate = document.getElementById("card");
+cardTemplate.removeAttribute("style");
+
+document.getElementById("input-misery").addEventListener("keyup", (e) => {
+    
+})
+
+
+for(let i = 0; i < milionaires.length; i++)
+{
+    let newCard = cardTemplate;
+    newCard.setAttribute("id", "card-" + i);
+    newCard.querySelector("td.year-income").innerText = milionaires[i].yearIncome;
+    newCard.querySelector("td.month-income").innerText = incomePermonth(milionaires[i].yearIncome);
+    newCard.querySelector("td.minute-income").innerText = incomePerMinute(milionaires[i].yearIncome);
+    newCard.querySelector("td.second-income").innerText = incomePerSecond(milionaires[i].yearIncome);
+    cardGrid.appendChild(newCard);
+}

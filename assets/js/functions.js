@@ -1,32 +1,23 @@
-/** The bois */
-let elonMusk = {
-    name: "Elon Musk",
-    yearIncome: 12648672874,
-    description: ""
-};
+/** Milionaire passport */
+function milionaire(name, yearIncome, description, lastUpdated, filepath = "assets/imgs/default.jpg")
+{
+    this.name = name;
+    this.yearIncome = yearIncome;
+    this.description = description;
+    this.lastUpdated = lastUpdated;
+    this.filepath = filepath;
+}
 
-let bernardArnault = {
-    name: "Bernard Arnault",
-    yearIncome: 94100000000,
-    description: ""
-};
-
-let billGates = 3796000000;
-let larryEllison = 67261000;
-let larryPage = 10000000;
-let markZuckerberg = 3000000000;
-let warrenBuffet = 13500000000;
-let jeffBezos = 73000000000;
-let jkRowling = 60000000;
-
-/** change from dollar */
+/** Change from dollar updated to december 2021 */
 let euro = 0.89;
 let yen = 114.31;
 let ruble = 73.78;
 let rupee = 75.50;
 
-/** other stuff */
+/** Other stuff */
 let commaValue = 2
+
+/** Functions for money calculations */
 
 function incomePermonth(income)
 {

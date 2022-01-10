@@ -1,5 +1,5 @@
 /** Milionaire passport */
-function milionaire(name, yearIncome, description, lastUpdated, filepath = "assets/imgs/default.jpg")
+function milionaire(name, yearIncome, description, lastUpdated = "december, 2021", filepath = "assets/imgs/default.jpg")
 {
     this.name = name;
     this.yearIncome = yearIncome;
@@ -19,7 +19,7 @@ let commaValue = 2
 
 /** Functions for money calculations */
 
-function incomePermonth(income)
+function incomePerMonth(income)
 {
     return (income / 12).toFixed(commaValue);
 }
@@ -37,6 +37,26 @@ function incomePerMinute(income)
 function incomePerSecond(income)
 {
     return (income / 31536000).toFixed(commaValue);
+}
+
+function compareYear(value1, value2){
+
+    return Math.floor(value1 / value2);
+}
+
+function compareMonth(value1, value2){
+
+    return Math.floor(incomePerMonth(value1) / value2);
+}
+
+function compareMinute(value1, value2){
+
+    return (incomePerMinute(value1) / value2).toFixed(commaValue);
+}
+
+function compareSecond(value1, value2){
+
+    return (incomePerSecond(value1) / value2).toFixed(commaValue + 2);
 }
 
 function toEur(income)

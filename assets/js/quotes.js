@@ -1,7 +1,7 @@
 let quotes = [
     "The average is so mediocre.",
     "Why are you here, craving unhappiness?",
-    "Lucky numbers are: 04, 53, 67, 42, 09.",
+    "Lucky numbers are: " + getRandom(0, 99) + " " + getRandom(0, 99) + " " + getRandom(0, 99) + " " + getRandom(0, 99) + " " + getRandom(0, 99) + ".",
     "This will not improve your day.",
     "You should work right now.",
     "You should study right now.",
@@ -9,7 +9,10 @@ let quotes = [
     "Economy sucks.",
     "Don't think too much about that.",
     "Remember to drink water.",
-    "At least you have some free time"
+    "At least you have some free time",
+    "Never too late to shine",
+    "Reality is disappointing",
+    "Sure, skip this ad"
 ];
 
 /** Output a random quote */

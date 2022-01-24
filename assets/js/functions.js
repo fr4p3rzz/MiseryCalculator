@@ -90,6 +90,7 @@ function explicitTime(time)
     let halfhour = 0.00006 // Percentage of 1 hour in a year
     let fiveMins = 0.00001 // Percentage of 5 minutes in a year
 
+    // I hate this, need refactory
     if(time < oneMonth)
     {
         if(time < twoWeeks)

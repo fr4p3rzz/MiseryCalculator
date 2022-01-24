@@ -1,7 +1,7 @@
 /** The bois */
 let milionaires = [];
 let baseFilepath = "assets/imgs/";
-let elonMusk = new milionaire("Elon Musk", 281200000000, "CEO at tesla, Starlink", baseFilepath+"musk.jpeg");
+let elonMusk = new milionaire("Elon Musk", 281200000000, "CEO at Tesla, Starlink", baseFilepath+"musk.jpeg");
 let bernardArnault = new milionaire("Bernard Arnault", 42300000000, "Former chairman at Dior, Luis Vuitton and others",baseFilepath+"arnault.jpeg");
 let billGates = new milionaire("Bill gates", 10700000000, "Founder at Microsoft, B&MFundation",baseFilepath+"gates.jpeg");
 let satyaNadella = new milionaire("Satya Nadella", 4470000000, "CEO at Microsoft", baseFilepath+"nadella.jpeg");
@@ -28,8 +28,12 @@ document.getElementById("template").remove();
 
 /** The input */
 let userYearIncome = 0;
+let alertOn = false;
+let realityCheck;
 document.getElementById("input-misery").addEventListener("keyup", (e) => {
     userYearIncome = parseInt(document.getElementById("input-misery").value);
+    dreamCrusher(500000);
+
 })
 
 document.getElementById("calculate-button").addEventListener("click", function(){

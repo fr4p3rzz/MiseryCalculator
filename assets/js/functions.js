@@ -142,6 +142,31 @@ function explicitTime(time)
     }
 }
 
+/** If the user input a value > amount, show an alert */
+function dreamCrusher(amount)
+{
+    if(userYearIncome > amount)
+    {
+        if(!alertOn)
+        {
+            realityCheck = document.createElement("div");
+            realityCheck.classList.add("alert");
+            realityCheck.classList.add("alert-danger");
+            realityCheck.innerText = "Yeah, you'd like that";
+            document.querySelector("#input-row").appendChild(realityCheck);
+            alertOn = true;
+        }
+    }
+    else
+    {
+        if(realityCheck != undefined)
+        {
+            realityCheck.remove();
+            alertOn = false;
+        }
+    }
+}
+
 function currencySelect(currency)
 {
     switch(currency)

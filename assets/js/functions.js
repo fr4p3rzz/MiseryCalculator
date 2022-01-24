@@ -1,5 +1,5 @@
 /** Milionaire passport */
-function milionaire(name, yearIncome, description, lastUpdated = "december, 2021", filepath = "assets/imgs/default.jpg")
+function milionaire(name, yearIncome, description = "", lastUpdated = "december, 2021", filepath = "assets/imgs/default.jpg")
 {
     this.name = name;
     this.yearIncome = yearIncome;
@@ -101,31 +101,31 @@ function explicitTime(time)
                     {
                         if(time < fiveMins)
                         {
-                            return '< 5min';
+                            return '~ 5min';
                         }
                         else
                         {
-                            return '< 30min';
+                            return '~ 30min';
                         }
                     }
                     else
                     {
-                        return '< 1hr';
+                        return '~ 1hr';
                     }
                 }
                 else
                 {
-                    return '< 1 day';
+                    return '~ 1 day';
                 }
             }
             else
             {
-                return '< 1 week';
+                return '~ 1 week';
             }
         }
         else
         {
-            return '< 1 month';
+            return '~ 1 month';
         }
     }
     else

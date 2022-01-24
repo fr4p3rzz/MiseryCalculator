@@ -1,21 +1,21 @@
 /** The bois */
 let milionaires = [];
-let elonMusk = new milionaire("Elon Musk", 281200000000);
-let bernardArnault = new milionaire("Bernard Arnault", 42300000000);
-let billGates = new milionaire("Bill gates", 10700000000);
-let larryEllison = new milionaire("Larry Ellison", 34000000000);
-let larryPage = new milionaire ("Larry Page", 16100000000);
-let markZuckerberg = new milionaire("Mark Zuckemberg", 23400000);
-let warrenBuffet = new milionaire("Warren Buffet", 380000);
-let jeffBezos = new milionaire("Jeff Bezos", 64000000000);
-let jkRowling = new milionaire("J.K. Rowling", 61125000);
+let elonMusk = new milionaire("Elon Musk", 281200000000, "CEO at tesla, Starlink");
+let bernardArnault = new milionaire("Bernard Arnault", 42300000000, "Dior, Luis Vuitton and others");
+let billGates = new milionaire("Bill gates", 10700000000, "Founder at Microsoft, B&MFundation");
+let satyaNadella = new milionaire("Satya Nadella", 4470000000, "CEO at Microsoft");
+let larryPage = new milionaire ("Larry Page", 16100000000, "Founder at Google, Alphabet");
+let markZuckerberg = new milionaire("Mark Zuckemberg", 23400000, "Founder of Meta");
+let ericSchmidt = new milionaire("Eric Schmidt", 5700000000, "CEO at Google, Alphabet");
+let jeffBezos = new milionaire("Jeff Bezos", 64000000000, "Founder at Amazon");
+let jkRowling = new milionaire("J.K. Rowling", 61125000, "Writer");
 
 milionaires.push(elonMusk);
 milionaires.push(bernardArnault);
-milionaires.push(larryEllison);
+milionaires.push(satyaNadella);
 milionaires.push(larryPage);
 milionaires.push(markZuckerberg);
-milionaires.push(warrenBuffet);
+milionaires.push(ericSchmidt);
 milionaires.push(jeffBezos);
 milionaires.push(jkRowling);
 
@@ -43,6 +43,8 @@ document.getElementById("calculate-button").addEventListener("click", function()
         
         newCard.querySelector("#who-is").innerText = milionaires[i].name;
         newCard.querySelector("#last-updated").innerText = "last data updated: " + milionaires[i].lastUpdated;
+        newCard.querySelector("#description").innerText =  milionaires[i].description;
+        newCard.querySelector("#photo-of-the-rich").setAttribute("src", milionaires[i].filepath);
 
         newCard.querySelector("td.year-income").innerText = milionaires[i].yearIncome.format(2, 3, '.', ',');
         newCard.querySelector("td.year-compare").innerText = compareYear(milionaires[i].yearIncome, userYearIncome)

@@ -6,7 +6,10 @@ let quotes = [
     "You should work right now.",
     "You should study right now.",
     "This was really a bad idea.",
-    "Economy sucks."
+    "Economy sucks.",
+    "Don't think too much about that.",
+    "Remember to drink water.",
+    "At least you have some free time"
 ];
 
 /** Output a random quote */

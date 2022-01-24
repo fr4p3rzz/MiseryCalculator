@@ -1,5 +1,5 @@
 /** Milionaire passport */
-function milionaire(name, yearIncome, description = "", lastUpdated = "december, 2021", filepath = "assets/imgs/default.jpg")
+function milionaire(name, yearIncome, description = "", filepath = "assets/imgs/default.jpg", lastUpdated = "december, 2021")
 {
     this.name = name;
     this.yearIncome = yearIncome;
@@ -55,7 +55,7 @@ function compareMinute(value1, value2){
 }
 
 function compareSecond(value1, value2){
-    result = (incomePerSecond(value1) / value2).toFixed(commaValue + 2);
+    result = (incomePerSecond(value1) / value2);
     return explicitTime(result);
 }
 
@@ -83,6 +83,7 @@ function toRupee(income)
 function explicitTime(time)
 {
     let oneMonth = 0.1 // Percentage of 1 month in a year
+    let twoWeeks = 0.04 // Percentage of one week in a year
     let oneWeek = 0.02 // Percentage of one week in a year
     let oneDay = 0.003 // Percentage of a day in a year
     let oneHour = 0.0001 // Percentage of 1 hour in a year
@@ -91,36 +92,43 @@ function explicitTime(time)
 
     if(time < oneMonth)
     {
-        if(time < oneWeek)
+        if(time < twoWeeks)
         {
-            if(time < oneDay)
+            if(time < oneWeek)
             {
-                if(time < oneHour)
+                if(time < oneDay)
                 {
-                    if(time < halfhour)
+                    if(time < oneHour)
                     {
-                        if(time < fiveMins)
+                        if(time < halfhour)
                         {
-                            return '~ 5min';
+                            if(time < fiveMins)
+                            {
+                                return '~ 5min';
+                            }
+                            else
+                            {
+                                return '~ 30min';
+                            }
                         }
                         else
                         {
-                            return '~ 30min';
+                            return '~ 1hr';
                         }
                     }
                     else
                     {
-                        return '~ 1hr';
+                        return '~ 1 day';
                     }
                 }
                 else
                 {
-                    return '~ 1 day';
+                    return '~ 1 week';
                 }
             }
             else
             {
-                return '~ 1 week';
+                return '~ 2 weeks'
             }
         }
         else
@@ -130,7 +138,7 @@ function explicitTime(time)
     }
     else
     {
-        return time;
+        return parseFloat(time).toFixed(commaValue);
     }
 }
 

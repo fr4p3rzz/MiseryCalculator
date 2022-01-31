@@ -24,11 +24,30 @@
         <br>
 
         <div class="row d-flex justify-content-center my-auto text-center" id="input-row">
+          <div class="col-sm">
             <div class="col align-self-center my-auto">
-                <input class="align-self-center"type="number" id="input-misery" placeholder="Insert your annual misery">
-                <button class="btn btn-primary" id="calculate-button"> check my wealth</button>
+              <input class="align-self-center"type="number" id="input-misery" placeholder="Insert your annual misery">
+              <button class="btn btn-primary" id="calculate-button"> check my wealth</button>
+          </div>
+          </div>
+          <div class="col-sm">
+            <div class="dropdown align-self-left">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="currency-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                USD
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="currency-dropdown">
+                <li><a class="dropdown-item dropdown-item-currency" href="#">USD</a></li>
+                <li><a class="dropdown-item dropdown-item-currency" href="#">EUR</a></li>
+                <li><a class="dropdown-item dropdown-item-currency" href="#">YEN</a></li>
+                <li><a class="dropdown-item dropdown-item-currency" href="#">RUB</a></li>
+                <li><a class="dropdown-item dropdown-item-currency" href="#">INR</a></li>
+              </ul>
             </div>
+          </div>
+
         </div>
+
+        
        
         <br>
 
@@ -89,6 +108,7 @@
     <script type="text/javascript" src="assets/js/actions.js"></script>
     
     <!-- Bootstrap 5.1.3 JS -->
+    <script type="text/javascript" src="assets/bootstrap-5.1.3/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap-5.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>

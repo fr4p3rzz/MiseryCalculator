@@ -12,7 +12,9 @@ let quotes = [
     "At least you have some free time",
     "Never too late to shine",
     "Reality is disappointing",
-    "Sure, skip this ad"
+    "Sure, skip this ad",
+    "Money is your god, and you are a failure [cit.]",
+    "You can live happily anyway"
 ];
 
 /** Output a random quote */

@@ -34,8 +34,18 @@ document.getElementById("input-misery").addEventListener("keyup", (e) => {
     userYearIncome = parseInt(document.getElementById("input-misery").value);
     dreamCrusher(500000);
 
-})
+});
 
+let currencies = Array.from(document.getElementsByClassName("dropdown-item-currency"));
+let currentCurrency = "USD";
+for(let i = 0; i < currencies.length; i++)
+{
+    currencies[i].addEventListener("click", (e) =>{
+        document.getElementById("currency-dropdown").innerText = currencies[i].innerText;
+        currentCurrency = currencies[i].innerText.toString();
+        
+    })
+}
 document.getElementById("calculate-button").addEventListener("click", function(){
 
     cardGrid.innerHTML = "";
@@ -51,17 +61,20 @@ document.getElementById("calculate-button").addEventListener("click", function()
         newCard.querySelector("#description").innerText =  milionaires[i].description;
         newCard.querySelector("#photo-of-the-rich").setAttribute("src", milionaires[i].filepath);
 
-        newCard.querySelector("td.year-income").innerText = milionaires[i].yearIncome.format(2, 3, '.', ',');
-        newCard.querySelector("td.year-compare").innerText = compareYear(milionaires[i].yearIncome, userYearIncome)
+        convertedUserYearIncome = currencySelect(userYearIncome, currentCurrency);
+        convertedMilionaireYearIncome = currencySelect(milionaires[i].yearIncome, currentCurrency);
 
-        newCard.querySelector("td.month-income").innerText = incomePerMonth(milionaires[i].yearIncome).format(2, 3, '.', ',');
-        newCard.querySelector("td.month-compare").innerText = compareMonth(milionaires[i].yearIncome, userYearIncome);
+        newCard.querySelector("td.year-income").innerText = convertedMilionaireYearIncome.format(2, 3, '.', ',');
+        newCard.querySelector("td.year-compare").innerText = compareYear(convertedMilionaireYearIncome, convertedUserYearIncome)
 
-        newCard.querySelector("td.minute-income").innerText = incomePerMinute(milionaires[i].yearIncome).format(2, 3, '.', ',');
-        newCard.querySelector("td.minute-compare").innerText = compareMinute(milionaires[i].yearIncome, userYearIncome);
+        newCard.querySelector("td.month-income").innerText = incomePerMonth(convertedMilionaireYearIncome).format(2, 3, '.', ',');
+        newCard.querySelector("td.month-compare").innerText = compareMonth(convertedMilionaireYearIncome, convertedUserYearIncome);
 
-        newCard.querySelector("td.second-income").innerText = incomePerSecond(milionaires[i].yearIncome).format(2, 3, '.', ',');
-        newCard.querySelector("td.second-compare").innerText = compareSecond(milionaires[i].yearIncome, userYearIncome);
+        newCard.querySelector("td.minute-income").innerText = incomePerMinute(convertedMilionaireYearIncome).format(2, 3, '.', ',');
+        newCard.querySelector("td.minute-compare").innerText = compareMinute(convertedMilionaireYearIncome, convertedUserYearIncome);
+
+        newCard.querySelector("td.second-income").innerText = incomePerSecond(convertedMilionaireYearIncome).format(2, 3, '.', ',');
+        newCard.querySelector("td.second-compare").innerText = compareSecond(convertedMilionaireYearIncome, convertedUserYearIncome);
 
         cardGrid.appendChild(newCard);
     }

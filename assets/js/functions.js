@@ -59,26 +59,6 @@ function compareSecond(value1, value2){
     return explicitTime(result);
 }
 
-function toEur(income)
-{
-    return (income * euro).toFixed(commaValue);
-}
-
-function toYen(income)
-{
-    return (income * yen).toFixed(commaValue);
-}
-
-function toRuble(income)
-{
-    return (income * ruble).toFixed(commaValue);
-}
-
-function toRupee(income)
-{
-    return (income * rupee).toFixed(commaValue)
-}
-
 // Function to explicit time when it's less than 1 month
 function explicitTime(time)
 {
@@ -143,7 +123,56 @@ function explicitTime(time)
     }
 }
 
-/** If the user input a value > amount, show an alert */
+function toEur(income)
+{
+    return (income * euro).toFixed(commaValue);
+}
+
+function toYen(income)
+{
+    return (income * yen).toFixed(commaValue);
+}
+
+function toRuble(income)
+{
+    return (income * ruble).toFixed(commaValue);
+}
+
+function toRupee(income)
+{
+    return (income * rupee).toFixed(commaValue)
+}
+
+// Convert the submitted income to the selected currency
+function currencySelect(income, currency)
+{
+    let multiplier = 1;
+    switch(currency)
+    {
+        case 'USD':
+            multiplier = 1;
+            break;
+        case 'EUR':
+            multiplier = euro;
+            break;
+        case 'YEN':
+            multiplier = yen;
+            break;
+        case 'RUB':
+            multiplier = ruble;
+            break;
+        case 'INR':
+            multiplier = rupee;
+            break;
+        default:
+            multiplier = 1;
+            break;
+    }
+
+    return income * multiplier;
+}
+
+// If the user input a value > amount, show an alert 
 function dreamCrusher(amount)
 {
     if(userYearIncome > amount)
@@ -165,25 +194,6 @@ function dreamCrusher(amount)
             realityCheck.remove();
             alertOn = false;
         }
-    }
-}
-
-function currencySelect(currency)
-{
-    switch(currency)
-    {
-        case 'USD':
-            break;
-        case 'EUR':
-            break;
-        case 'YEN':
-            break;
-        case 'RUB':
-            break;
-        case 'INR':
-            break;
-        default:
-            break;
     }
 }
 

@@ -1,5 +1,7 @@
 /** The bois */
 let milionaires = [];
+let currentCurrency = "USD";
+
 let baseFilepath = "assets/imgs/";
 let elonMusk = new milionaire("Elon Musk", 281200000000, "CEO at Tesla, Starlink", baseFilepath+"musk.jpeg");
 let bernardArnault = new milionaire("Bernard Arnault", 42300000000, "Former chairman at Dior, Luis Vuitton and others",baseFilepath+"arnault.jpeg");
@@ -26,18 +28,8 @@ let cardTemplate = document.createElement("div");
 cardTemplate = document.getElementById("card");
 document.getElementById("template").remove();
 
-/** The input */
-let userYearIncome = 0;
-let alertOn = false;
-let realityCheck;
-document.getElementById("input-misery").addEventListener("keyup", (e) => {
-    userYearIncome = parseInt(document.getElementById("input-misery").value);
-    dreamCrusher(500000);
-
-});
-
+/** The currency */
 let currencies = Array.from(document.getElementsByClassName("dropdown-item-currency"));
-let currentCurrency = "USD";
 for(let i = 0; i < currencies.length; i++)
 {
     currencies[i].addEventListener("click", (e) =>{
@@ -46,6 +38,23 @@ for(let i = 0; i < currencies.length; i++)
         
     })
 }
+
+/** The input */
+let userYearIncome = 0;
+let alertOn = false;
+let realityCheck;
+document.getElementById("input-misery").addEventListener("keyup", (e) => {
+    userYearIncome = parseInt(document.getElementById("input-misery").value);
+    let amount = 500000;
+    if(currentCurrency == "YEN" || currentCurrency == "INR" || currentCurrency == "RUB")
+    {
+        amount *= 90;
+    }
+    dreamCrusher(amount);
+
+});
+
+/** The calculations */
 document.getElementById("calculate-button").addEventListener("click", function(){
 
     cardGrid.innerHTML = "";

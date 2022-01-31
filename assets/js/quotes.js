@@ -1,3 +1,18 @@
+/** Function for string shuffling */
+String.prototype.shuffle = function () {
+    var a = this.split(""),
+        n = a.length;
+
+    for(var i = n - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+    return a.join("");
+}
+
+/** Some random numbers */
 let rand0 = getRandom(0, 99);
 let rand1 = getRandom(0, 99);
 let rand2 = getRandom(0, 99);
@@ -29,7 +44,7 @@ let quotes = [
 let seed = getRandom(-9999, 9999)
 var quote = "";
 
-/** Output a random quote */
+/** Output a random quote */ 
 if(seed == 9999)
 {
     quote = "Game Freak doens't know programming";
@@ -38,16 +53,21 @@ else if(bingoString.includes(seed))
 {
     quote = bingoString + " Lucky! :D"
 }
+else if((((seed + 1234) / 7) + 1) % 2 == 0 && seed < 0)
+{
+    quote = quotes[getRandom(0, quotes.length - 1)].shuffle();
+}
 else
 {
-    quote = quotes[getRandom(0, quotes.length - 1)]
+    quote = quotes[getRandom(0, quotes.length - 1)];
 }
 
 document.querySelector("#welcome-quote").innerText = quote;
 
-
+/** Function for random value */
 function getRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.round(Math.random() * (max - min) + min);
   }
+

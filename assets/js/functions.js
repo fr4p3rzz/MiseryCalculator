@@ -9,6 +9,7 @@ function milionaire(name, yearIncome, description = "", filepath = "assets/imgs/
 }
 
 /** Change from dollar updated to december 2021 */
+let swiss = 0.93;
 let euro = 0.89;
 let yen = 114.31;
 let ruble = 73.78;
@@ -154,6 +155,9 @@ function currencySelect(income, currency)
             break;
         case 'EUR':
             multiplier = euro;
+            break;
+        case "CHF":
+            multiplier = swiss;
             break;
         case 'YEN':
             multiplier = yen;

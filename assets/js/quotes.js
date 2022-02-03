@@ -67,13 +67,21 @@ let rareQuotes = [
     "I am so bored",
     "I hope you're having fun ruining your day",
     "The only valuable number is 42 anyway",
-    "The princess is in another bank account"
+    "The princess is in another bank account",
+    "Oh look, a rare quote!"
 ];
 let epicQuotes = [
-    "I don't know what to write here"
+    "Perkele",
+    "I stole this quotes idea from Minecraft",
+    "Quotes almost as rare as a RTX3080",
+    "Go out and die",
+    "The world is burning",
+    "No change in yourself will change the world",
 ];
 let legendaryQuotes = [
-    "Congratulations. Now what?"
+    "Se ni’ mondo esistesse un po’ di bene e ognun si honsiderasse suo fratello ci sarebbe meno pensieri e meno pene e il mondo ne sarebbe assai più bello",
+    "https://www.youtube.com/watch?v=KuyF5kNvd7Y&ab_channel=Ikeaggg%C3%A9-Topic",
+    "01010111 01100101 00100000 01100001 01110010 01100101 00100000 01110011 01110000 01101001 01100101 01100100 00100000 01100001 01101110 01100100 00100000 01110111 01100101 00100000 01100100 01100101 01110011 01100101 01110010 01110110 01100101 00100000 01101001 01110100"
 ];
 
 /** more rare quotes */
@@ -89,21 +97,21 @@ else if (rand4 + rand3 + rand2 + rand1 + rand0 == seed)
 {
     quote = legendaryQuotes[getRandom(0, legendaryQuotes.length - 1)];
 }
-else if((rand4 * signChanger) + (rand2* signChanger) + (rand0 * signChanger) < seed && seed > -250 && seed < 250)
-{
-    quote = epicQuotes[getRandom(0, epicQuotes.length - 1)];
-}
-else if((rand4 * rand3 + rand2) > seed && seed > 0)
-{
-    quote = rareQuotes[getRandom(0, rareQuotes.length - 1)];
-}
 else if(bingoString.includes(seed))
 {
     quote = bingoString + " Lucky! :D"
 }
+else if((rand4 * signChanger) + (rand2* signChanger) + (rand0 * signChanger) < seed && seed > -250 && seed < 250)
+{
+    quote = epicQuotes[getRandom(0, epicQuotes.length - 1)];
+}
 else if((((seed + 1234) / 7) + 1) % 2 == 0 && seed < -4321)
 {
     quote = quotes[getRandom(0, quotes.length - 1)].shuffle();
+}
+else if((rand4 * rand3 + rand2) > seed && seed > 0)
+{
+    quote = rareQuotes[getRandom(0, rareQuotes.length - 1)];
 }
 else
 {

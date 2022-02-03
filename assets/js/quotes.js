@@ -19,6 +19,7 @@ function getRandom(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
+/** reteurn 1 or -1 based on the current moment */
 function dateRandomSign()
 {
     let date = Date.now();

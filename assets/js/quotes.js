@@ -1,15 +1,35 @@
 /** Function for string shuffling */
 String.prototype.shuffle = function () {
-    var a = this.split(""),
-        n = a.length;
+    var letterArray = this.split(""),
+        n = letterArray.length;
 
     for(var i = n - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
-        var tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
+        var tmp = letterArray[i];
+        letterArray[i] = letterArray[j];
+        letterArray[j] = tmp;
     }
-    return a.join("");
+    return letterArray.join("");
+}
+
+/** Function for random value */
+function getRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+function dateRandomSign()
+{
+    let date = Date.now();
+    if(date % 2 == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 /** Some random numbers */
@@ -18,7 +38,9 @@ let rand1 = getRandom(0, 99);
 let rand2 = getRandom(0, 99);
 let rand3 = getRandom(0, 99);
 let rand4 = getRandom(0, 99);
-let bingoString = "Lucky numbers are: " + rand0 + " " + rand1 + " " + rand2 + " " + rand3 + " " + rand4 + "."
+let signChanger = dateRandomSign();
+
+let bingoString = "Lucky numbers are: " + rand0 + " " + rand1 + " " + rand2 + " " + rand3 + " " + rand4 + ".";
 
 let quotes = [
     "The average is so mediocre.",
@@ -37,23 +59,49 @@ let quotes = [
     "Sure, skip this ad",
     "Money is your god, and you are a failure [cit.]",
     "You can live happily anyway",
-    "We are all slaves"
+    "We are all slaves",
+    "At least you can get vaccinated"
+];
+
+let rareQuotes = [
+    "I am so bored",
+    "I hope you're having fun ruining your day",
+    "The only valuable number is 42 anyway",
+    "The princess is in another bank account"
+];
+let epicQuotes = [
+    "I don't know what to write here"
+];
+let legendaryQuotes = [
+    "Congratulations. Now what?"
 ];
 
 /** more rare quotes */
 let seed = getRandom(-9999, 9999)
 var quote = "";
 
-/** Output a random quote */ 
-if(seed == 9999)
+/** Output a random quote, from rarest to most common */ 
+if(seed == 9998)
 {
-    quote = "Game Freak doens't know programming";
+    quote = "Final Fantasy IX was the best one";
+}
+else if (rand4 + rand3 + rand2 + rand1 + rand0 == seed)
+{
+    quote = legendaryQuotes[getRandom(0, legendaryQuotes.length - 1)];
+}
+else if((rand4 * signChanger) + (rand2* signChanger) + (rand0 * signChanger) < seed && seed > -250 && seed < 250)
+{
+    quote = epicQuotes[getRandom(0, epicQuotes.length - 1)];
+}
+else if((rand4 * rand3 + rand2) > seed && seed > 0)
+{
+    quote = rareQuotes[getRandom(0, rareQuotes.length - 1)];
 }
 else if(bingoString.includes(seed))
 {
     quote = bingoString + " Lucky! :D"
 }
-else if((((seed + 1234) / 7) + 1) % 2 == 0 && seed < 0)
+else if((((seed + 1234) / 7) + 1) % 2 == 0 && seed < -4321)
 {
     quote = quotes[getRandom(0, quotes.length - 1)].shuffle();
 }
@@ -63,11 +111,3 @@ else
 }
 
 document.querySelector("#welcome-quote").innerText = quote;
-
-/** Function for random value */
-function getRandom(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.round(Math.random() * (max - min) + min);
-  }
-

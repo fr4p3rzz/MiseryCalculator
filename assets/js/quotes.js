@@ -1,18 +1,18 @@
 /** Function for string shuffling */
 String.prototype.shuffle = function () {
-    var letterArray = this.split(""),
+    let letterArray = this.split(""),
         n = letterArray.length;
 
-    for(var i = n - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = letterArray[i];
+    for(let i = n - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let tmp = letterArray[i];
         letterArray[i] = letterArray[j];
         letterArray[j] = tmp;
     }
     return letterArray.join("");
 }
 
-/** Function for random value */
+/** Function for random value in a range */
 function getRandom(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -84,6 +84,7 @@ let legendaryQuotes = [
     "https://www.youtube.com/watch?v=KuyF5kNvd7Y&ab_channel=Ikeaggg%C3%A9-Topic",
     "01010111 01100101 00100000 01100001 01110010 01100101 00100000 01110011 01110000 01101001 01100101 01100100 00100000 01100001 01101110 01100100 00100000 01110111 01100101 00100000 01100100 01100101 01110011 01100101 01110010 01110110 01100101 00100000 01101001 01110100"
 ];
+let InfinityQuote = "Final Fantasy IX was the best one"
 
 /** more rare quotes */
 let seed = getRandom(-9999, 9999)
@@ -92,7 +93,7 @@ var quote = "";
 /** Output a random quote, from rarest to most common */ 
 if(seed == 9998)
 {
-    quote = "Final Fantasy IX was the best one";
+    quote = InfinityQuote;
 }
 else if (rand4 + rand3 + rand2 + rand1 + rand0 == seed)
 {
